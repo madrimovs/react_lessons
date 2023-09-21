@@ -1,0 +1,6 @@
+.my_component {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-around;
+}
