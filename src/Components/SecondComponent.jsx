@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const SecondComponent = ({ props }) => {
-    const [sanash, setSanash] = useState(0);
+    const [showMore, setShowMore] = useState(false);
 
-    const clickBtn = () => {
-        setSanash(sanash + 1);
+    const showMoreFunc = () => {
+        setShowMore(!showMore);
     };
 
     return (
@@ -18,13 +18,17 @@ const SecondComponent = ({ props }) => {
             <img style={{ width: "100%" }} src={props.image} alt="" />
             <div style={{ padding: "5px", textAlign: "center" }}>
                 <h3 className="title">{props.title}</h3>
-                <p>{props.description}</p>
+
+                <button onClick={showMoreFunc}>
+                    {showMore ? "Hidden" : "Show"} details
+                </button>
+
+                {showMore && <p>{props.description}</p>}
+
                 <p>{props.category}</p>
                 <p>{props.price}</p>
             </div>
-            <button onClick={clickBtn} className="btn btn-warning w-100">
-                Sanoq {sanash}
-            </button>
+            <button className="btn btn-warning w-100">Sanoq</button>
         </div>
     );
 };
